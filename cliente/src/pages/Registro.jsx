@@ -1,43 +1,57 @@
-import { useState } from "react";
-
-export default function Registrar() {
- const [nome, setNome] = useState ("");
- const [email, setEmail] = useState ("");
-  event.preventDefault();
-  const registrar = async (event) => {
-    try{
-      await fetch('http://localhost:3000/usuarios', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          nome: nome,
-          email: email
-          })
-      })
-    } catch{
-      alert("Ocorreu um erro na aplicação")
-    }}
-
-  return (
-    <main>
-      <form action="" onSubmit={registrar}>
+import { useEffect, useState } from "react";
+export default function registrar(){
+    const [usuarios, setUsuarios] = useState([]);         
+    const [gmail, setGmail] = useState([]);
+    useEffect(() => {
+      const buscarUsuario = async () => {
+        try {
+          const resposta = await fetch("http://localhost:3000/usuarios");
+          const dados = await resposta.json();
+          setUsuarios(dados);
+          setGmail(dados);
+        } catch {
+          alert('Ocorreu um erro no app!');
+        }
+      }
+      buscarUsuario();
+    }, [])
+    return(
+        <>
+    <table>
+        <div className="todos">
+        <div className="pagina1">
+        <tr>
+          <td className="border">Nome</td>
+        </tr>
         
-        <input
-        className="espacamento"
-        placeholder="Nome"
-        type="text"
-        value={nome}
-        onChange={(event) => setNome(event.target.value)}/>
-        
-        <input
-        className="espacamento"
-        placeholder="Email"
-        type="emai"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}/>
-
-        <button>Salvar</button>
-      </form>
-    </main>
-    );
+        {
+            usuarios.map((usuario) =>
+                <tr key={usuario.id}>
+            
+          <div className="separar">
+            <td>{usuario.nome}</td>
+          </div>
+          </tr>
+          )}
+          </div>
+          
+        <div className="pagina2">
+  
+          <tr>
+          <td className="border">E-mail</td>
+        </tr>
+        {
+            gmail.map((gmail) =>
+                <tr key={gmail.id}>
+              
+          <div className="separar">
+            <td>{gmail.email}</td>
+          </div>
+          </tr>
+        )}
+        </div>
+        </div>  
+      </table>
+        </>
+    )
 }

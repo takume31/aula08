@@ -1,4 +1,58 @@
+body{   
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+table{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+#root{
+    width: 100%;
+}
 .separar{
     display: flex;
     justify-content: center;
+    width: 100%;
+    border: 1px solid black;
+    margin: 10px;
+}
+.centraliza{
+    display: flex;
+    justify-content: center;
+}
+button{
+    margin-top: 5px;
+    color: white;
+    background-color: black;
+    height: 30px;
+}
+tr{
+    text-align: center;
+    width: 100%;
+}
+.border{
+    width: 600px;
+    border: 1px solid black;
+}
+.pagina1{
+    justify-items: center;
+    width: 100%;
+    border: 2px solid black;
+}
+.pagina2{
+    justify-items: center;
+    width: 100%;
+    border: 2px solid black;
+}
+.todos{
+    width: 100%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+}
+input{
+    text-align: center;
+    width: 99%;
 }
