@@ -52,6 +52,13 @@ export default function registrar(){
         </div>
         </div>  
       </table>
+      <div className="botao">
+        <button className="link">
+        <a href="http://localhost:5173/">
+          Menu
+        </a>
+          </button>
+      </div>
         </>
     )
 }

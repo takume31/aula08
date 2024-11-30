@@ -39,7 +39,14 @@ export default function Registrar() {
         value={email}
         onChange={(event) => setEmail(event.target.value)}/>
         </div>
-        <button>Salvar</button>
+        <button className="salvar">Salvar</button>
+        </div>
+        <div className="botao">
+        <button className="link">
+        <a href="http://localhost:5173/registro">
+        registro
+        </a>
+          </button>
         </div>
       </form>
     </main>

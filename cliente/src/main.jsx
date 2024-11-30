@@ -9,7 +9,7 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
        <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path='/Registro' element={<Lista/>}/>
+            <Route path='/registro' element={<Lista/>}/>
        </Routes>
     </BrowserRouter>
   </StrictMode>,
