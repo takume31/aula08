@@ -1,54 +1,73 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+import { Button } from  "@mui/material";
+import AdfScannerIcon from '@mui/icons-material/AdfScanner';
 
-export default function Registrar() {
- const [nome, setNome] = useState (""); 
- const [email, setEmail] = useState ("");
-  const registrar = async (event) => {
-  
-  event.preventDefault();
+export default function Home() {
+
+  const [usuarios, setUsuarios] = useState([]);
+
+  useEffect(() => {
+    const buscarUsuario = async () => {
+      try {
+        const resposta = await fetch("http://localhost:3000/usuarios");
+        const dados = await resposta.json();
+        setUsuarios(dados);
+      } catch {
+        alert('Ocorreu um erro no app!');
+      }
+    }
+    buscarUsuario();
+  }, [usuarios]);
+
+  const deletar = async(id) => {
     try{
-      await fetch('http://localhost:3000/usuarios', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          nome: nome,
-          email: email
-          })
-      })
-    } catch{
-      alert("Ocorreu um erro na aplicação")
-    }};
+      await fetch('http://localhost:3000/usuarios/'+ id , {
+        method: 'DELETE'
+      });
+    }catch{
+      alert("Ish... lascou!")
+    }
+  }
+
+  const exportarPDF = () => {
+    const doc = new jsPDF();
+
+    const tabela = usuarios.map(usuario => [
+      usuario.id,
+      usuario.nome,
+      usuario.email
+    ]);
+    doc.text("Lista de Usuários", 10, 10);
+
+    doc.autoTable({
+      head:[["id", "Nome", "Email"]],
+      body: tabela
+    })
+    doc.save("Arquivo baixado");
+  }
   return (
-    <main>
-      <form action="" onSubmit={registrar}>
-
-      <div className="centraliza">
-        <div className="separar">
-        <input
-        placeholder="Nome"
-        type="text"
-        value={nome}
-        onChange={(event) => setNome(event.target.value)}/>
-        </div>
-
-        <div className="separar">
-        <input
-        className="espacamento"
-        placeholder="Email"
-        type='email'
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}/>
-        </div>
-        <button className="salvar">Salvar</button>
-        </div>
-        <div className="botao">
-        <button className="link">
-        <a href="http://localhost:5173/registro">
-        registro
-        </a>
-          </button>
-        </div>
-      </form>
-    </main>
-    );
+    <div>
+      <Button variant="contained" onClick={() => exportarPDF()}><AdfScannerIcon/></Button>
+    <table border = '1'>
+      <tr>
+        <td>Nome</td>
+        <td>E-mail</td>
+        <th>Ações</th>
+      </tr>
+      {usuarios.map((usuario) =>
+        <tr key={usuario.id}>
+          <td>{usuario.nome}</td>
+          <td>{usuario.email}</td>
+          <td> <button onClick={()=> removerPessoa(usuario.id)}> X </button>
+          <Link to={'/alterar/' + usuario.id}>
+               <button>Alterar</button>
+          </Link>
+          </td>
+        </tr>
+      )}
+    </table>
+    </div>
+  );
 }

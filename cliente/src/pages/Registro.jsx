@@ -1,64 +1,50 @@
-import { useEffect, useState } from "react";
-export default function registrar(){
-    const [usuarios, setUsuarios] = useState([]);         
-    const [gmail, setGmail] = useState([]);
-    useEffect(() => {
-      const buscarUsuario = async () => {
-        try {
-          const resposta = await fetch("http://localhost:3000/usuarios");
-          const dados = await resposta.json();
-          setUsuarios(dados);
-          setGmail(dados);
-        } catch {
-          alert('Ocorreu um erro no app!');
-        }
-      }
-      buscarUsuario();
-    }, [])
-    return(
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+export default function Registro() {
+
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+
+  const navigation = useNavigate();
+
+  const Registrar = async (event) => {
+event.preventDefault();
+try {
+  const resposta = await fetch('http://localhost:3000/usuarios', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      nome: nome,
+      email: email
+    })
+  });
+  if(resposta.ok){
+    navigation('/')
+  }
+} catch (err) {
+  alert('Ocorreu um erro na aplicação', err);
+}}
+
+  return (
         <>
-    <table>
-        <div className="todos">
-        <div className="pagina1">
-        <tr>
-          <td className="border">Nome</td>
-        </tr>
-        
-        {
-            usuarios.map((usuario) =>
-                <tr key={usuario.id}>
-            
-          <div className="separar">
-            <td>{usuario.nome}</td>
-          </div>
-          </tr>
-          )}
-          </div>
-          
-        <div className="pagina2">
-  
-          <tr>
-          <td className="border">E-mail</td>
-        </tr>
-        {
-            gmail.map((gmail) =>
-                <tr key={gmail.id}>
-              
-          <div className="separar">
-            <td>{gmail.email}</td>
-          </div>
-          </tr>
-        )}
-        </div>
-        </div>  
-      </table>
-      <div className="botao">
-        <button className="link">
-        <a href="http://localhost:5173/">
-          Menu
-        </a>
-          </button>
-      </div>
+        <main>
+          <form onSubmit={Registrar}>
+            <input
+            type="text"
+            value={nome}
+            placeholder="Nome"
+            onChange={(event) => setNome(event.target.value)}/>
+
+            <input
+            type="text"
+            value={email}
+            placeholder="Email"
+            onChange={(event) => setEmail(event.target.value)}/>
+            <button
+            type="submit">Registrar</button>
+          </form>
+        </main>
         </>
-    )
+  );
 }

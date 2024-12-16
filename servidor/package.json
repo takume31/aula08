@@ -13,6 +13,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.1",
+    "jspdf-autotable": "^3.8.4",
     "servidor": "file:"
   }
 }
