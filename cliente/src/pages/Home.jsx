@@ -3,6 +3,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { Button } from  "@mui/material";
 import AdfScannerIcon from '@mui/icons-material/AdfScanner';
+import { Link } from "react-router-dom";
 
 export default function Home() {
 
@@ -60,8 +61,8 @@ export default function Home() {
         <tr key={usuario.id}>
           <td>{usuario.nome}</td>
           <td>{usuario.email}</td>
-          <td> <button onClick={()=> removerPessoa(usuario.id)}> X </button>
-          <Link to={'/alterar/' + usuario.id}>
+          <td> <button onClick={()=> deletar(usuario.id)}> X </button>
+          <Link to={'/Alterar/' + usuario.id}>
                <button>Alterar</button>
           </Link>
           </td>
