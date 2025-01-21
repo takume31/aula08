@@ -25,18 +25,18 @@ export default function Registro() {
         body: JSON.stringify({
           imagem: imagem,
           nome: nome,
-          email: email,
+          email: email
         }),
       });
 
       if (resposta.ok) {
-        navigation("/"); // Navigate to home page
+        navigation("/");
       } else {
         alert("Erro ao registrar usuário. Tente novamente.");
       }
     } catch (err) {
       alert("Ocorreu um erro na aplicação. Tente novamente mais tarde.");
-      console.error(err); // Log the error for debugging
+      console.error(err);
     }
   };
 

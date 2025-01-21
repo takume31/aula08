@@ -34,7 +34,7 @@ export default function Home() {
     const doc = new jsPDF();
     const tabela = usuarios.map(usuario => [
       usuario.id,
-      usuario.imagem,  // Could be used with addImage if needed
+      usuario.imagem,
       usuario.nome,
       usuario.email
     ]);
@@ -42,7 +42,7 @@ export default function Home() {
     doc.text("Lista de Usuários", 10, 10);
 
     doc.autoTable({
-      head: [["id", "imagem", "Nome", "Email"]],
+      head: [["id", "Imagem", "Nome", "Email"]],
       body: tabela,
     });
 
