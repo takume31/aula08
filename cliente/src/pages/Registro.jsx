@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 
 export default function Registro() {
@@ -76,9 +76,10 @@ export default function Registro() {
           />
         </div>
 
-        <Button variant="contained" color="primary" type="submit">
-          Registrar
-        </Button>
+        <Link to="/"> <Button variant="contained" color="primary" type="submit"> Cancelar </Button>   </Link>
+        
+        <Button variant="contained" color="primary" type="submit"> Registrar </Button>
+
       </form>
     </main>
   );

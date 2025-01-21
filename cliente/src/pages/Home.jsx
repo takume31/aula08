@@ -79,6 +79,7 @@ export default function Home() {
           ))}
         </tbody>
       </table>
+      <Link to={'/registros'}><button>Reguistrar</button></Link>
     </div>
   );
 }
