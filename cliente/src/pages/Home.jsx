@@ -36,13 +36,14 @@ export default function Home() {
       usuario.id,
       usuario.imagem,
       usuario.nome,
-      usuario.email
+      usuario.descricao,
+      usuario.preco
     ]);
 
     doc.text("Lista de Usuários", 10, 10);
 
     doc.autoTable({
-      head: [["id", "Imagem", "Nome", "Email"]],
+      head: [["id", "Imagem", "Nome", "Descrição", "preco"]],
       body: tabela,
     });
 
@@ -58,8 +59,9 @@ export default function Home() {
         <thead>
           <tr>
             <th>Imagem</th>
-            <th>Nome</th>
-            <th>Email</th>
+            <th>Jogo</th>
+            <th>descrição</th>
+            <th>Preço</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -68,7 +70,8 @@ export default function Home() {
             <tr key={usuario.id}>
               <td><img src={usuario.imagem} alt={usuario.nome} style={{ width: "50px", height: "50px" }} /></td>
               <td>{usuario.nome}</td>
-              <td>{usuario.email}</td>
+              <td>{usuario.descricao}</td>
+              <td>R$:{usuario.preco}</td>
               <td>
                 <Button variant="contained" color="secondary" onClick={() => deletar(usuario.id)}>X</Button>
                 <Link to={'/Alterar/' + usuario.id}>

@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 export default function Alterar() {
   const { id } = useParams(); // ID do usuário vindo da URL
   const navigate = useNavigate(); // Para redirecionar após a alteração
-  const [usuario, setUsuario] = useState({ nome: "", email: "", imagem:"" });
+  const [usuario, setUsuario] = useState({ nome: "", descricao: "", imagem:"", preco:"" });
 
   // Buscar os dados do usuário ao carregar o componente
   useEffect(() => {
@@ -61,10 +61,16 @@ export default function Alterar() {
           onChange={handleChange}
         />  
         <input
-          label="E-mail"
-          name="email"
-          value={usuario.email}
+          label="descrição"
+          name="descricao"
+          value={usuario.descricao}
           onChange={handleChange}
+        />
+        <input 
+        label="Preço"
+        name="preco"
+        value={usuario.preco}
+        onChange={handleChange}
         />
         <Button variant="contained" onClick={handleSalvar}>
         Salvar

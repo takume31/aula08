@@ -5,15 +5,15 @@ import { Button } from "@mui/material";
 export default function Registro() {
   const [imagem, setimagem] = useState("");
   const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-
+  const [descricao, setDescricao] = useState("");
+  const [preco, setPreco] = useState("");
   const navigation = useNavigate();
 
   const Registrar = async (event) => {
     event.preventDefault();
 
     // Basic validation
-    if (!imagem || !nome || !email) {
+    if (!imagem || !nome || !descricao) {
       alert("Por favor, preencha todos os campos.");
       return;
     }
@@ -25,14 +25,15 @@ export default function Registro() {
         body: JSON.stringify({
           imagem: imagem,
           nome: nome,
-          email: email
+          descricao: descricao,
+          preco: preco
         }),
       });
 
       if (resposta.ok) {
         navigation("/");
       } else {
-        alert("Erro ao registrar usuário. Tente novamente.");
+        alert("Erro ao registrar O jogo. Tente novamente.");
       }
     } catch (err) {
       alert("Ocorreu um erro na aplicação. Tente novamente mais tarde.");
@@ -66,17 +67,28 @@ export default function Registro() {
         </div>
 
         <div>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="descricao">descrição</label>
           <input
-            type="email"
-            id="email"
-            value={email}
-            placeholder="Email"
-            onChange={(event) => setEmail(event.target.value)}
+            type="descricao"
+            id="descricao"
+            value={descricao}
+            placeholder="descrição"
+            onChange={(event) => setDescricao(event.target.value)}
           />
         </div>
 
-        <Link to="/"> <Button variant="contained" color="primary" type="submit"> Cancelar </Button>   </Link>
+        <div>
+          <label htmlFor="preco">Preço</label>
+          <input
+            type="preco"
+            id="preco"
+            value={preco}
+            placeholder="preco"
+            onChange={(event) => setPreco(event.target.value)}
+          />
+        </div>
+
+        <Link to="/"> <Button variant="contained" color="primary" type="submit"> Cancelar </Button> </Link>
         
         <Button variant="contained" color="primary" type="submit"> Registrar </Button>
 
