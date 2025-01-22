@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
-
+import Home from "./Home2";
 export default function Alterar() {
   const { id } = useParams(); // ID do usuário vindo da URL
   const navigate = useNavigate(); // Para redirecionar após a alteração
@@ -37,16 +37,17 @@ export default function Alterar() {
         },
         body: JSON.stringify(usuario),
       });
-      alert("Usuário atualizado com sucesso!");
+      alert("Jogo atualizado com sucesso!");
       navigate("/"); // Redireciona para a página inicial
     } catch {
-      alert("Erro ao atualizar o usuário.");
+      alert("Erro ao atualizar o JOgo.");
     }
   };
 
   return (
     <div>
-      <h2>Alterar Usuário</h2>
+      <h2>Alterar Jogo</h2>
+      <Home/>
       <form>
         <input
         label="Imagem"

@@ -83,7 +83,7 @@ export default function Registro() {
             type="preco"
             id="preco"
             value={preco}
-            placeholder="preco"
+            placeholder="preç o"
             onChange={(event) => setPreco(event.target.value)}
           />
         </div>

@@ -4,6 +4,8 @@ import 'jspdf-autotable';
 import { Button } from  "@mui/material";
 import AdfScannerIcon from '@mui/icons-material/AdfScanner';
 import { Link } from "react-router-dom";
+import React from 'react';
+import Alterar from "./alterar";
 
 export default function Home() {
   const [usuarios, setUsuarios] = useState([]);
@@ -50,6 +52,13 @@ export default function Home() {
     doc.save("Arquivo_Baixado.pdf");
   }
 
+  const TextoComLimite = ({ texto, limite }) => {
+    // Verifica se o texto excede o limite
+    const textoLimitado = texto.length > limite ? texto.slice(0, limite) + '...' : texto;
+  
+    return <p>{textoLimitado}</p>;
+  };
+  
   return (
     <div>
       <Button variant="contained" onClick={exportarPDF}>
@@ -70,7 +79,7 @@ export default function Home() {
             <tr key={usuario.id}>
               <td><img src={usuario.imagem} alt={usuario.nome} style={{ width: "50px", height: "50px" }} /></td>
               <td>{usuario.nome}</td>
-              <td>{usuario.descricao}</td>
+              <td><TextoComLimite texto={usuario.descricao} limite={25}/></td>
               <td>R$:{usuario.preco}</td>
               <td>
                 <Button variant="contained" color="secondary" onClick={() => deletar(usuario.id)}>X</Button>
@@ -85,4 +94,5 @@ export default function Home() {
       <Link to={'/registros'}><button>Reguistrar</button></Link>
     </div>
   );
+
 }
