@@ -61,9 +61,8 @@ export default function Home() {
   
   return (
     <div>
-      <Button variant="contained" onClick={exportarPDF}>
-        <AdfScannerIcon />
-      </Button>
+      <Link to={'/registros'}><button>Reguistrar</button></Link>
+      <Button variant="contained" onClick={exportarPDF}><AdfScannerIcon /></Button>
       <table border="1">
         <thead>
           <tr>
@@ -91,7 +90,6 @@ export default function Home() {
           ))}
         </tbody>
       </table>
-      <Link to={'/registros'}><button>Reguistrar</button></Link>
     </div>
   );
 
