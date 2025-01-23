@@ -74,13 +74,13 @@ export default function Home() {
             <th>Ações</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody> 
           {usuarios.map((usuario) => (
             <tr key={usuario.id}>
-              <td><img src={usuario.imagem} alt={usuario.nome} style={{ width: "50px", height: "50px" }} /></td>
+              <td><img src={usuario.imagem} alt={usuario.nome} style={{ width: "75px", height: "75px" }} /></td>
               <td>{usuario.nome}</td>
               <td><TextoComLimite texto={usuario.descricao} limite={25}/></td>
-              <td>R$:{usuario.preco}</td>
+              <td>R$: {usuario.preco}</td>
               <td>
                 <Button variant="contained" color="secondary" onClick={() => deletar(usuario.id)}>X</Button>
                 <Link to={'/Alterar/' + usuario.id}>

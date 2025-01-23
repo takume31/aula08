@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
-import Home from "./Home2";
+
 export default function Alterar() {
   const { id } = useParams(); // ID do usuário vindo da URL
   const navigate = useNavigate(); // Para redirecionar após a alteração
@@ -47,32 +47,41 @@ export default function Alterar() {
   return (
     <div>
       <h2>Alterar Jogo</h2>
-      <Home/>
       <form>
+        <img src={usuario.imagem} alt="Imagem do jogo" style={{while:100, height:100}} />
+        <br/>
+        <label>Imagem</label>
         <input
         label="Imagem"
         name="imagem"
         value={usuario.imagem}
         onChange={handleChange}
         />
+        <h3>{usuario.nome}</h3>
+        <label>Nome</label>
         <input
           label="Nome"
           name="nome"
           value={usuario.nome}
           onChange={handleChange}
         />  
+        <label>Descrição</label>
+        <h3>{usuario.descricao}</h3>
         <input
           label="descrição"
           name="descricao"
           value={usuario.descricao}
           onChange={handleChange}
         />
+        <h3>R$: {usuario.preco}</h3>
+        <label>Preço</label>
         <input 
         label="Preço"
         name="preco"
         value={usuario.preco}
         onChange={handleChange}
         />
+        <br/>
         <Button variant="contained" onClick={handleSalvar}>
         Salvar
         </Button>
