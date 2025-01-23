@@ -61,7 +61,7 @@ export default function Home() {
   
   return (
     <div>
-      <Link to={'/registros'}><button>Reguistrar</button></Link>
+      <Link to={'/registros'}><button>Registrar</button></Link>
       <Button variant="contained" onClick={exportarPDF}><AdfScannerIcon /></Button>
       <table border="1">
         <thead>
