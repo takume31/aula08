@@ -46,7 +46,7 @@ export default function Alterar() {
 
   return (
     <div>
-      <h2>Alterar Jogo</h2>
+      <h1>Alterar Jogo</h1>
       <form>
         <img src={usuario.imagem} alt="Imagem do jogo" style={{while:100, height:100}} />
         <br/>
@@ -57,7 +57,7 @@ export default function Alterar() {
         value={usuario.imagem}
         onChange={handleChange}
         />
-        <h3>{usuario.nome}</h3>
+        <h1>{usuario.nome}</h1>
         <label>Nome</label>
         <input
           label="Nome"
@@ -65,15 +65,15 @@ export default function Alterar() {
           value={usuario.nome}
           onChange={handleChange}
         />  
+        <h2>{usuario.descricao}</h2>
         <label>Descrição</label>
-        <h3>{usuario.descricao}</h3>
         <input
           label="descrição"
           name="descricao"
           value={usuario.descricao}
           onChange={handleChange}
         />
-        <h3>R$: {usuario.preco}</h3>
+        <h2>R$: {usuario.preco}</h2>
         <label>Preço</label>
         <input 
         label="Preço"
