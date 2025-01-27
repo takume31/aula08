@@ -61,12 +61,16 @@ export default function Home() {
   
   return (
     <div>
-      <Link to={'/registros'}><button>Registrar</button></Link>
-      <Button variant="contained" onClick={exportarPDF}><AdfScannerIcon /></Button>
-      <table border="1">
+      <div className="Mutano">
+      <div class="barra-branca"> 
+      <Link to={'/registros'}><button className="Registro"><strong>Registrar</strong></button></Link>
+      <button className="Butao" onClick={exportarPDF}><AdfScannerIcon /></button>
+        </div>
+        </div>
+      <div className="Centralizar"> <table border="1">
         <thead>
           <tr>
-            <th>Imagem</th>
+            <th><strong>Imagem</strong></th>
             <th>Jogo</th>
             <th>descrição</th>
             <th>Preço</th>
@@ -81,15 +85,16 @@ export default function Home() {
               <td><TextoComLimite texto={usuario.descricao} limite={25}/></td>
               <td>R$: {usuario.preco}</td>
               <td>
-                <Button variant="contained" color="secondary" onClick={() => deletar(usuario.id)}>X</Button>
+                <button className="botao4" color="secondary" onClick={() => deletar(usuario.id)}><strong>Excluir</strong></button>
                 <Link to={'/Alterar/' + usuario.id}>
-                  <Button variant="outlined" color="primary">Alterar</Button>
+                  <button className="botao4" color="primary"><strong>Editar</strong></button>
                 </Link>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 

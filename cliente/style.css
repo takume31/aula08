@@ -1,3 +1,101 @@
 input{
     width: 20%;
 }
+
+body {
+    background: linear-gradient(45deg,#ffffff, #ffffff) no-repeat center center fixed;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 2%;
+  }
+
+#JOGOS{
+    height: 100px;
+   width: 200px;
+     margin: 0%;
+   }
+
+.Mutano{
+    display: flex;
+    justify-content: center;
+  }
+
+.Butao{
+    padding: 5px 10px;
+    background-color: #ffffff;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    width: 50px;
+    margin-left: 12%;
+}
+
+button{
+    padding: 5px 10px;
+    background-color: #f00a0a;
+    color: #df0f0f;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.botao2{
+    padding: 5px 10px;
+    background-color: #ffffff;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    width: 50px;
+    position: relative;
+    top: 10px; /* Move o botão 50px para baixo */
+}
+
+.botao3{
+    padding: 5px 10px;
+    background-color: #ffffff;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    width: 80px;
+    position: relative;
+  top: 10px; /* Move o botão 50px para baixo */
+}
+
+button{
+    color: rgb(255, 255, 255);
+  }
+  
+button{
+     background: linear-gradient(45deg,#575757, #575757) no-repeat center center fixed;
+  }
+
+.Registro{
+    margin-left: 26%;
+    height: 70%;
+}
+
+.Centralizar{
+    display: flex;
+    justify-content: center;
+}
+
+ /* Estilo para a barra */
+ .barra-branca {
+    width: 42%; /* Largura total da página */
+    height: 40px; /* Altura da barra */
+    background-color: rgb(34, 34, 34); /* Cor branca */
+    border: 1px solid #3a3a3a; /* Opcional: Borda cinza clara */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    border-radius: 20px;
+}
+
+tr{
+    border: solid,10px,rgb(255, 255, 255);
+
+ }

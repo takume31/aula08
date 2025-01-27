@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
 
 export default function Alterar() {
   const { id } = useParams(); // ID do usuário vindo da URL
@@ -50,7 +49,7 @@ export default function Alterar() {
       <form>
         <img src={usuario.imagem} alt="Imagem do jogo" style={{while:100, height:100}} />
         <br/>
-        <label>Imagem</label>
+        <label><strong>Imagem:</strong></label>
         <input
         label="Imagem"
         name="imagem"
@@ -58,7 +57,7 @@ export default function Alterar() {
         onChange={handleChange}
         />
         <h1>{usuario.nome}</h1>
-        <label>Nome</label>
+        <label><strong>Nome:</strong></label>
         <input
           label="Nome"
           name="nome"
@@ -66,7 +65,7 @@ export default function Alterar() {
           onChange={handleChange}
         />  
         <h2>{usuario.descricao}</h2>
-        <label>Descrição</label>
+        <label><strong>Descrição</strong></label>
         <input
           label="descrição"
           name="descricao"
@@ -74,7 +73,7 @@ export default function Alterar() {
           onChange={handleChange}
         />
         <h2>R$: {usuario.preco}</h2>
-        <label>Preço</label>
+        <label><strong>Preço:</strong></label>
         <input 
         label="Preço"
         name="preco"
@@ -82,9 +81,10 @@ export default function Alterar() {
         onChange={handleChange}
         />
         <br/>
-        <Button variant="contained" onClick={handleSalvar}>
-        Salvar
-        </Button>
+
+        <div className="botao2">
+        <Button variant="contained" onClick={handleSalvar}>Salvar</Button>
+        </div>
       </form>
     </div>
   );

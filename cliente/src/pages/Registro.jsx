@@ -45,7 +45,7 @@ export default function Registro() {
     <main>
       <form onSubmit={Registrar}>
         <div>
-          <label htmlFor="imagem">Imagem URL</label>
+          <label htmlFor="imagem"><strong>Imagem URL:</strong></label>
           <input
             type="url"
             id="imagem"
@@ -56,7 +56,7 @@ export default function Registro() {
         </div>
 
         <div>
-          <label htmlFor="nome">Nome</label>
+          <label htmlFor="nome"><strong>Nome:</strong></label>
           <input
             type="text"
             id="nome"
@@ -67,30 +67,30 @@ export default function Registro() {
         </div>
 
         <div>
-          <label htmlFor="descricao">descrição</label>
+          <label htmlFor="descricao"><strong>Descrição:</strong></label>
           <input
             type="descricao"
             id="descricao"
             value={descricao}
-            placeholder="descrição"
+            placeholder="Descrição"
             onChange={(event) => setDescricao(event.target.value)}
           />
         </div>
 
         <div>
-          <label htmlFor="preco">Preço</label>
+          <label htmlFor="preco"><strong>Preço:</strong></label>
           <input
-            type="preco"
-            id="preco"
+            type="Preco"
+            id="Preco"
             value={preco}
-            placeholder="preço"
+            placeholder="Preço"
             onChange={(event) => setPreco(event.target.value)}
           />
         </div>
 
-        <Link to="/"> <Button variant="contained" color="primary" type="submit"> Cancelar </Button> </Link>
+        <Link to="/"> <button className="botao3" color="primary" type="submit"> Cancelar </button> </Link>
         
-        <Button variant="contained" color="primary" type="submit"> Registrar </Button>
+        <button className="botao3" color="primary" type="submit"> Registrar </button>
 
       </form>
     </main>
