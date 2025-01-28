@@ -20,6 +20,19 @@ body {
     justify-content: center;
   }
 
+  .tudo{
+    text-align: center;
+    font-size: 20px;
+}
+.todosbotao{
+display: flex;
+justify-content: center;
+}
+.botao{
+margin-right: 5px;
+margin-left: 5px;
+}
+
 .Butao{
     padding: 5px 10px;
     background-color: #ffffff;
@@ -76,7 +89,7 @@ button{
   }
 
 .Registro{
-    margin-left: 26%;
+    margin-left: 0%;
     height: 70%;
 }
 

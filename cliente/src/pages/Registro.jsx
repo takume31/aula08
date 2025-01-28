@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
 
 export default function Registro() {
   const [imagem, setimagem] = useState("");
@@ -11,9 +10,8 @@ export default function Registro() {
 
   const Registrar = async (event) => {
     event.preventDefault();
-
     // Basic validation
-    if (!imagem || !nome || !descricao) {
+    if (!imagem || !nome || !descricao || !preco) {
       alert("Por favor, preencha todos os campos.");
       return;
     }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 export default function Alterar() {
   const { id } = useParams(); // ID do usuário vindo da URL
@@ -39,7 +40,7 @@ export default function Alterar() {
       alert("Jogo atualizado com sucesso!");
       navigate("/"); // Redireciona para a página inicial
     } catch {
-      alert("Erro ao atualizar o JOgo.");
+      alert("Erro ao Atualizar o Jogo.");
     }
   };
 
